@@ -1,1 +1,1 @@
-# seir-p1-war
+It's the card game war! Split the deck of cards and see who has the higher card! Remember: Aces are high! If you tie, you both play the next card until one of you has a higher card. The highest card takes all the others in play. once you run out of cards, you shuffle all the cards you've won and that becomes your deck! When you have all the cards in the deck, you win!
