@@ -1,14 +1,11 @@
-const deck = [1,2,3,4,5,6,7,8,9,10];
-
+let dealer = [1,2,3,4,5,6,7,8,9,10];
+let player = [];
+let computer = [];
 function shuffle(deck){
-  for( let i = 0; i < deck.length;i++){
-    let val = (Math.floor(Math.random() * ((deck.length - i) - 0 + 1) + 0));
-    let card = deck.splice(val,1);
-    deck.push(card);
+  for(let i = deck.length-1; i > 0; i--){
+    const j = Math.floor(Math.random()*(i + 1));
+    [deck[i], deck[j]] = [deck[j],deck[i]];
   }
-  for(let i = 0; i < deck.length;i++){
-    console.log(deck[i]);
-  }
+  console.log(deck);
 }
-
-shuffle(deck);
+shuffle(dealer);
