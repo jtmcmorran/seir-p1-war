@@ -71,8 +71,8 @@ function flip(){
     }
   }
   else{
-    if(player.length > 3 && computer.length > 3){
-      for(let i = 0;i < 3; i++){
+    if(player.length > 4 && computer.length > 3){
+      for(let i = 0;i < 4; i++){
         pool.push(player.shift());
         pool.push(computer.shift());
       }
