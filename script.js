@@ -10,7 +10,8 @@ const cards =["two","three","four","five","six","seven","eight","nine","ten","ja
 let dealer = [];
 let player = [];
 let computer = [];
-let playButton = document.getElementById("play");
+let pool = [];
+let playButton = document.querySelector("button");
 let playerCard = document.querySelector(".player");
 let computerCard = document.querySelector(".computer");
 let playerCount = document.getElementById("playerCount");
@@ -22,7 +23,16 @@ function shuffle(deck){
     [deck[i], deck[j]] = [deck[j],deck[i]];
   }
 }
-
+function deal(){
+  for(let i = dealer.length; i>0; i--){
+    if(i%2===0){
+      player.push(dealer.pop());
+    }
+    else{
+      computer.push(dealer.pop());
+    }
+  }
+}
 function game(){
   //create deck
   for(let i = 0;i<suits.length;i++){
@@ -34,33 +44,55 @@ function game(){
   shuffle(dealer);
   deal();
 }
-function deal(){
-  for(let i = dealer.length; i>0; i--){
-    if(i%2===0){
-      player.push(dealer.pop());
-    }
-    else{
-      computer.push(dealer.pop());
-    }
-  }
-}
+
 game();
 
 
-playButton.addEventListener( 'click', flip => {
+function flip(){
+  playButton.innerHTML = "Play!";
   playerCard.id = (player[0].id);
   computerCard.id = (computer[0].id);
   if(player[0].val > computer[0].val){
     player.push(player.shift());
     player.push(computer.shift());
+    if(pool.length > 0){
+      for(let i = pool.length; i > 0; i--){
+        player.push(pool.shift());
+      }
+    }
   }
   else if(player[0].val < computer[0].val){
     computer.push(player.shift());
     computer.push(computer.shift());
+    if(pool.length > 0){
+      for(let i = pool.length;i > 0; i--){
+        computer.push(pool.shift());
+      }
+    }
   }
   else{
-    computer.push(computer.shift());
-    player.push(player.shift());
+    if(player.length > 3 && computer.length > 3){
+      for(let i = 0;i < 3; i++){
+        pool.push(player.shift());
+        pool.push(computer.shift());
+      }
+    }
+    else{
+      if(player.length < computer.length){
+        for(let i = player.length;i > 1; i--){
+          pool.push(player.shift());
+          pool.push(computer.shift());
+        }
+      }
+      else{
+        for(let i = computer.length; i > 1; i--){
+          pool.push(player.shift());
+          pool.push(computer.shift());
+        }
+      }
+    }
+    playButton.innerHTML = "War! " + pool.length + " cards in pool!"
+
   }
   computerCount.innerHTML = ("Computer Cards:"+computer.length);
   playerCount.innerHTML = ("Player Cards:"+player.length);
@@ -72,4 +104,6 @@ playButton.addEventListener( 'click', flip => {
     computerCount.innerHTML = "WINNER!";
     playerCount.innerHTML = "LOSER!";
   }
-});
+}
+
+playButton.onclick = flip;

@@ -32,9 +32,9 @@ body{
 
 #play{
   position: absolute;
-  margin: 5% 53%;
-  height:30px;
-  width:100px;
+  margin: 5% 48%;
+  height:50px;
+  width:200px;
   border-radius:6px
 }
 
