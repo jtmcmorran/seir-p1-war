@@ -1,1 +1,1 @@
-It's the card game war! Split the deck of cards and see who has the higher card! Remember: Aces are high! If you tie, draw again!. The highest card takes the lower card. When you have all the cards in the deck, you win!
+It's the card game war! Split the deck of cards and see who has the higher card! Remember: Aces are high! If you tie, flip three cards into the pool and draw again!. The highest card takes the lower card and any in the pool! When you have all the cards in the deck, you win!
