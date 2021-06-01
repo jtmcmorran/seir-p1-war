@@ -4,18 +4,23 @@ class Card{
     this.id = id;
   }
 }
+
 const suits =["spades","diamonds","clubs","hearts"];
 const cards =["two","three","four","five","six","seven","eight","nine","ten","jack","queen","king","ace"];
 let dealer = [];
 let player = [];
 let computer = [];
+let playButton = document.getElementById("play");
+let playerCard = document.querySelector(".player");
+let computerCard = document.querySelector(".computer");
+let playerCount = document.getElementById("playerCount");
+let computerCount = document.getElementById("computerCount");
 //shuffle function
 function shuffle(deck){
   for(let i = deck.length-1; i > 0; i--){
     const j = Math.floor(Math.random()*(i + 1));
     [deck[i], deck[j]] = [deck[j],deck[i]];
   }
-
 }
 
 function game(){
@@ -27,6 +32,9 @@ function game(){
     }
   }
   shuffle(dealer);
+  deal();
+}
+function deal(){
   for(let i = dealer.length; i>0; i--){
     if(i%2===0){
       player.push(dealer.pop());
@@ -35,10 +43,32 @@ function game(){
       computer.push(dealer.pop());
     }
   }
-  console.log(player);
-  console.log(computer);
-//    while(true){
-
-  //  }
 }
 game();
+console.log(player);
+console.log(computer);
+
+playButton.addEventListener( 'click', flip => {
+  playerCard.id = (player[0].id);
+  computerCard.id = (computer[0].id);
+  if(player[0].val > computer[0].val){
+    player.push(player.shift());
+    player.push(computer.shift());
+  }
+  else if(player[0].val < computer[0].val){
+    computer.push(player.shift());
+    computer.push(computer.shift());
+  }
+  else{
+    computer.push(computer.shift());
+    player.push(player.shift());
+  }
+  computerCount.innerHTML = ("Computer Cards:"+computer.length);
+  playerCount.innerHTML = ("Player Cards:"+player.length);
+  if(player.length==52){
+    alert("You Win!");
+  }
+  if(computer.length==52){
+    alert("You Lose!");
+  }
+});

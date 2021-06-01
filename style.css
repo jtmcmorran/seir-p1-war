@@ -1,3 +1,6 @@
+body{
+  background-image:url('card-table.jpeg')
+}
 .card {
   height:240px;
   width:180px;
@@ -10,7 +13,29 @@
 }
 
 .computer{
-  margin: 15% 50%;
+  margin: 15% 60%;
+}
+.count{
+  background-color:lightgrey;
+  padding:15px;
+  width:130px;
+  border-radius:6px;
+}
+#playerCount{
+  position:absolute;
+  margin:10% 40%;
+}
+#computerCount{
+  position:absolute;
+  margin:10% 60%;
+}
+
+#play{
+  position: absolute;
+  margin: 5% 53%;
+  height:30px;
+  width:100px;
+  border-radius:6px
 }
 
 #two-clubs{
