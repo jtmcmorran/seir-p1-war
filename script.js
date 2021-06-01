@@ -45,8 +45,7 @@ function deal(){
   }
 }
 game();
-console.log(player);
-console.log(computer);
+
 
 playButton.addEventListener( 'click', flip => {
   playerCard.id = (player[0].id);
@@ -66,9 +65,11 @@ playButton.addEventListener( 'click', flip => {
   computerCount.innerHTML = ("Computer Cards:"+computer.length);
   playerCount.innerHTML = ("Player Cards:"+player.length);
   if(player.length==52){
-    alert("You Win!");
+    computerCount.innerHTML = "LOSER!";
+    playerCount.innerHTML = "WINNER!";
   }
   if(computer.length==52){
-    alert("You Lose!");
+    computerCount.innerHTML = "WINNER!";
+    playerCount.innerHTML = "LOSER!";
   }
 });
