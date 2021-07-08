@@ -1,0 +1,23 @@
+{
+  "name": "seir-p1-war",
+  "version": "1.0.0",
+  "description": "It's the card game war! Split the deck of cards and see who has the higher card! Remember: Aces are high! If you tie, flip three cards into the pool and draw again!. The highest card takes the lower card and any in the pool! When you have all the cards in the deck, you win!",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jtmcmorran/seir-p1-war.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jtmcmorran/seir-p1-war/issues"
+  },
+  "homepage": "https://github.com/jtmcmorran/seir-p1-war#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
